@@ -18,4 +18,21 @@ class TaskController extends Controller
     {
         return view('tasks.index');
     }
+
+    // Save a task to the tasks table
+    // Request is the data from the form
+    public function store(Request $request)
+    {
+        // Validate request with rules
+        $request->validate([
+            'task_name' => 'required|max:50'
+        ]);
+
+        // model/database task name = form task name 
+        $this->task_m->name = $request->task_name;
+        $this->task_m->save();
+
+        // redirect back to go back to index page
+        return redirect()->back();
+    }
 }

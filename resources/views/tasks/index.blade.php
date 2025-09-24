@@ -9,7 +9,7 @@
     --}}
     <h1 class="h3">{{ config('app.name') }}</h1>
 
-    <form action="#" method="post">
+    <form action="{{  route('store') }}" method="post">
         @csrf
         {{-- cross-site request forgeries --}}
         {{-- to validate the request / security / for CSRF protection --}}
