@@ -16,7 +16,8 @@ class TaskController extends Controller
 
     public function index()
     {
-        return view('tasks.index');
+        $all_tasks = $this->task_m->latest()->get();
+        return view('tasks.index')->with('all_tasks', $all_tasks);
     }
 
     // Save a task to the tasks table

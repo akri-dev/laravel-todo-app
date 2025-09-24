@@ -27,4 +27,18 @@
         </div>
     </form>
 
+    {{-- Show all tasks from Database--}}
+    @if ($all_tasks->isNotEmpty())
+        <ul class="list-group">
+            @foreach ($all_tasks as $task)
+                <li class="list-group-item d-flex align-items-center">
+                    {{-- Task --}}
+                    <p class="mb-0 me-auto">{{ $task->name }}</p>
+
+                    {{-- Action Buttons --}}
+                    <a href="#" class="btn btn-secondary btn-sm"></a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 @endsection
