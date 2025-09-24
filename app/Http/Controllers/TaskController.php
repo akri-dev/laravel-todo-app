@@ -36,4 +36,10 @@ class TaskController extends Controller
         // redirect back to go back to index page
         return redirect()->back();
     }
+
+    public function edit($id)
+    {
+        $task = $this->task_m->findOrFail($id);
+        return view('tasks.edit')->with('task', $task);
+    }
 }
