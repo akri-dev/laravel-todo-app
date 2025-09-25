@@ -5,7 +5,7 @@
 @section('content')
     <h1 class="h3">Edit Task</h1>
 
-    <form action="{{ route('store') }}" method="post">
+    <form action="{{ route('update', $task->id) }}" method="post">
         @csrf
         @method('PATCH')
         <div class="row gx-2 mb-3">

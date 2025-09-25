@@ -42,4 +42,27 @@ class TaskController extends Controller
         $task = $this->task_m->findOrFail($id);
         return view('tasks.edit')->with('task', $task);
     }
+
+    // Modify task in task table
+    public function update(Request $request, $id)
+    {
+        // Validate request with rules
+        $request->validate([
+            'task_name' => 'required|max:50'
+        ]);
+
+        $task_m = $this->task_m->findOrFail($id);
+        $task_m->name = $request->task_name;
+        $task_m->save();
+
+        // redirect back to go back to index page
+        return redirect()->route('index');
+    }
+
+    public function destroy($id)
+    {
+        $this->task_m->destroy($id);
+        return redirect()->back();
+    }
+
 }

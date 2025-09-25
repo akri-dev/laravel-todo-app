@@ -37,7 +37,7 @@
 
                     {{-- Action Buttons --}}
                     <a href="{{ route('edit', $task->id) }}" class="btn btn-secondary btn-sm" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                    <form action="#" method="post" class="ms-1">
+                    <form action="{{ route('destroy', $task->id) }}" method="post" class="ms-1">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
